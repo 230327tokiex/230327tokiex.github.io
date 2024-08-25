@@ -47,6 +47,20 @@ function updateVisitorCount() {
 }
 setInterval(updateVisitorCount, 10000);
 
+// What's New section
+const newsItems = [
+    'Added SUPER ELIZA Chat!',
+    'Updated portfolio with latest projects',
+    'New retro-style background',
+    'Added this What\'s New section!'
+];
+const newsList = document.getElementById('whats-new-list');
+newsItems.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    newsList.appendChild(li);
+});
+
 // Diary entry
 const diaryEntries = [
     'Today I learned about CSS Grid. It\'s so much easier than tables!',
@@ -55,3 +69,6 @@ const diaryEntries = [
     'Discovered a cool new VS Code extension. My productivity is skyrocketing!'
 ];
 document.getElementById('diary-entry').textContent = diaryEntries[Math.floor(Math.random() * diaryEntries.length)];
+
+
+

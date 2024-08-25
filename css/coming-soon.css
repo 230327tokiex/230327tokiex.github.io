@@ -1,0 +1,70 @@
+body {
+    font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+    background-color: #CCFFFF;
+    color: #FF00FF;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.construction {
+    background-color: #FFFFFF;
+    border: 3px dashed #FF00FF;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #FFFF00;
+}
+
+.message {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.back-link a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FF00FF;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-link a:hover {
+    background-color: #FF66FF;
+    transform: scale(1.1);
+}
+
+.emoji {
+    font-size: 3em;
+    animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
