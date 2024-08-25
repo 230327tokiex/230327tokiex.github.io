@@ -70,6 +70,5 @@ const diaryEntries = [
 ];
 document.getElementById('diary-entry').textContent = diaryEntries[Math.floor(Math.random() * diaryEntries.length)];
 
-// Confetti effect (simplified version)
 
 
