@@ -46,6 +46,16 @@ th {
     background-color: #FFFF00;
     color: #FF00FF;
 }
+
+/* 既存のスタイルに追加 */
+
+table a {
+    color: #FF00FF; /* ビビッドなピンク */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+
 .content-link {
     display: inline-block;
     margin: 10px;
@@ -214,3 +224,72 @@ table td:last-child {
     background-color: #FF00FF;
     color: #CCFFFF;
 }
+
+
+/*NEW*/
+
+.new-mark {
+    display: inline-block;
+    background-color: #FF00FF; /* マゼンタ */
+    color: #FFFF00; /* イエロー */
+    font-weight: bold;
+    font-size: 0.6em; /* さらに小さく */
+    padding: 1px 3px;
+    border: 1px solid #00FFFF; /* シアン */
+    margin-bottom: 3px;
+    animation: blink-retro 0.5s step-end infinite alternate;
+}
+
+@keyframes blink-retro {
+    50% { visibility: hidden; }
+}
+
+.app-number {
+    font-size: 0.7em;
+    color: #FF00FF; /* マゼンタ */
+}
+
+.app-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #FF00FF; /* マゼンタ */
+}
+
+/* テーブルのスタイルも調整 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #FF00FF; /* マゼンタ */
+}
+
+th, td {
+    border: 1px solid #00FFFF; /* シアン */
+    padding: 8px;
+    text-align: left;
+    vertical-align: top; /* 上揃えに */
+}
+
+th {
+    background-color: #FFFF00; /* イエロー */
+    color: #FF00FF; /* マゼンタ */
+}
+
+tr:nth-child(even) {
+    background-color: #FFFFFF; /* 白 */
+}
+
+tr:nth-child(odd) {
+    background-color: #CCFFFF; /* 薄いシアン */
+}
+
+/* リンクのスタイル */
+table a {
+    color: #FF00FF; /* マゼンタ */
+    text-decoration: underline;
+}
+
+table a:hover {
+    color: #0000FF; /* ブルー */
+    text-decoration: none;
+}
+
