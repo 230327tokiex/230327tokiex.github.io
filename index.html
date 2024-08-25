@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toki's homepage | Welcome to my retro pop portfolio site!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+
+</head>
+<body>
+    
+    <div class="container">
+        <div id="seasonal-message"></div>
+        <h1>toki's homepage</h1>
+        <marquee behavior="alternate" scrollamount="3">Welcome to my retro pop portfolio site! Check out my latest web apps and fun features!</marquee>
+        
+        <div id="emoji-icon"></div>
+        
+        <div class="daily-message" id="daily-message"></div>
+        
+        <p class="counter">You are visitor number <span id="visitorCount">12345</span>!</p>
+        <p>Hi there! I love developing web apps and creating fun, nostalgic experiences.</p>
+        
+        <h2 class="blink">My Awesome Web Apps</h2>
+        <table>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Link</th>
+                <th>Category</th>
+            </tr>
+            <tr>
+                <td>Cool App 1</td>
+                <td>This is a description of Cool App 1</td>
+                <td><a href="#">Visit</a></td>
+                <td>game, React,</td>
+            </tr>
+            <tr>
+                <td>Cool App 2</td>
+                <td>This is a description of Cool App 2</td>
+                <td><a href="#">Visit</a></td>
+                <td>game, React,</td>
+            </tr>
+            <tr>
+                <td>Cool App 3</td>
+                <td>This is a description of Cool App 3</td>
+                <td><a href="#">Visit</a></td>
+                <td>game, React,</td>
+            </tr>
+        </table>
+        
+        <h2>Retro Fun Corner</h2>
+        <a href="#" class="content-link">SUPER ELIZA Chat</a>
+        <a href="#" class="content-link">SUPER Fortune Teller</a>
+        <a href="#" class="content-link">SUPER Emoji-gotchi</a>
+        
+        <div class="whats-new">
+            <h3>What's New?</h3>
+            <ul id="whats-new-list"></ul>
+        </div>
+        
+        <div class="diary">
+            <h3>toki's Diary</h3>
+            <p id="diary-entry"></p>
+        </div>
+
+        <div class="links-section">
+            <h3>Cool Links</h3>
+            <ul>
+                <li>🤖 AI Assistants:
+                    <ul>
+                        <li><a href="https://www.anthropic.com" target="_blank">Claude</a></li>
+                        <li><a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
+                    </ul>
+                </li>
+                <li>🎨 Design Tools:
+                    <ul>
+                        <li><a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Tailwind CSS Color Palette</a></li>
+                        <li><a href="https://lucide.dev/icons/" target="_blank">Lucide Icons</a></li>
+                        <li><a href="https://fonts.google.com/" target="_blank">Google Fonts</a></li>
+                    </ul>
+                </li>
+                <li>🔍 Search Engines:
+                    <ul>
+                        <li><a href="https://www.yahoo.com" target="_blank">Yahoo!</a></li>
+                        <li><a href="https://www.altavista.com" target="_blank">AltaVista</a> (RIP)</li>
+                        <li><a href="https://www.ask.com" target="_blank">Ask Jeeves</a></li>
+                    </ul>
+                </li>
+                <li>💻 Web Development:
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+                        <li><a href="https://caniuse.com/" target="_blank">Can I use</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="coming-soon">
+            <h2 class="blink">Coming Soon!</h2>
+            <p>Get ready for more awesome retro features!</p>
+            <ul style="list-style-type: none; padding: 0;">
+                <li>🕹️ Retro Game Arcade</li>
+                <li>🎵 MIDI Music Player</li>
+                <li>📖 Interactive Guestbook</li>
+            </ul>
+        </div>
+        
+        <button class="hidden-button" id="confetti-button">.</button>
+        
+        <div id="test-container"></div>
+
+        <div class="footer">
+            <p>Last updated: August 24, 2024</p>
+            <div class="retro-badges">
+                <span class="badge" id="confetti-badge">Made with retro-pop style</span>
+                <span class="badge" id="ufo-badge">Best viewed with fun</span>
+            </div>
+            <p>© toki 2024. All rights reserved. No part of this webpage may be reproduced or transmitted in any form or by any means, electronic or mechanical, including photocopying, recording, or by any information storage and retrieval system, without permission in writing from the copyright owner.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

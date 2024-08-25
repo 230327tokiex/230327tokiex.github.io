@@ -1,0 +1,216 @@
+body {
+    font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+    background-color: #CCFFFF;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    color: #FF00FF;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border: 3px dashed #FF00FF;
+    padding: 20px;
+}
+h1, h2 {
+    font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+    font-weight: 700; /* Bold指定 */
+    color: #FF00FF;
+    text-shadow: 2px 2px #FFFF00;
+}
+h1 { font-size: 3em; }
+h2 { font-size: 2em; }
+.blink {
+    animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+    to { visibility: hidden; }
+}
+.counter {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #FF0000;
+    margin: 20px 0;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 2px solid #00FFFF;
+    padding: 10px;
+}
+th {
+    background-color: #FFFF00;
+    color: #FF00FF;
+}
+.content-link {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #FF00FF;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #00FFFF;
+    transition: background-color 0.3s;
+}
+.content-link:hover {
+    background-color: #00FFFF;
+    color: #FF00FF;
+}
+.footer {
+    margin-top: 30px;
+    font-size: 0.8em;
+}
+marquee {
+    background-color: #FFFF00;
+    color: #FF00FF;
+    padding: 5px;
+}
+.coming-soon {
+    background-color: #FFFF00;
+    color: #FF00FF;
+    padding: 10px;
+    margin-top: 20px;
+    border: 2px dashed #FF00FF;
+}
+
+#emoji-icon {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* アイコン間の間隔 */
+}
+
+.emoji-icon {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000000;
+    margin: 10px 0; /* 上下のマージンのみ設定 */
+    font-size: 40px;
+    line-height: 60px;
+}
+
+
+.daily-message {
+    background-color: #00FFFF;
+    color: #FF00FF;
+    padding: 10px;
+    margin: 20px 0;
+    border: 2px solid #FF00FF;
+}
+.hidden-button {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.whats-new, .diary, .links-section {
+    background-color: #FFFF99;
+    border: 2px dashed #FF9900;
+    padding: 10px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.links-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+.links-section li {
+    margin: 10px 0;
+}
+.links-section a {
+    color: #0000FF;
+    text-decoration: none;
+}
+.links-section a:hover {
+    text-decoration: underline;
+}
+
+.retro-badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.badge {
+    background-color: #FF00FF;
+    color: #FFFF00;
+    padding: 5px 10px;
+    border: 2px solid #00FFFF;
+    font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+}
+
+.badge:nth-child(2) {
+    background-color: #00FFFF;
+    color: #FF00FF;
+    transform: rotate(5deg);
+}
+
+.badge {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.badge:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+}
+
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #FFD700;
+    pointer-events: none;
+    animation: sparkle-animation 1s linear forwards;
+}
+
+@keyframes sparkle-animation {
+    0% { transform: scale(0) rotate(0deg); opacity: 1; }
+    100% { transform: scale(1) rotate(360deg); opacity: 0; }
+}
+
+/* 既存のスタイルはそのままで、以下を追加 */
+
+/* テーブルのカテゴリ列のフォントサイズを小さくする */
+table td:last-child {
+    font-size: 0.8em;
+}
+
+/* 季節イベントメッセージのスタイル */
+#seasonal-message {
+    background-color: #FFFF99;
+    border: 2px dashed #FF9900;
+    padding: 10px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #FF00FF;
+}
+
+/* テストリンクのスタイル */
+.test-link {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #CCFFFF;
+    color: #FF00FF;
+    text-decoration: none;
+    border: 1px solid #FF00FF;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.test-link:hover {
+    background-color: #FF00FF;
+    color: #CCFFFF;
+}
