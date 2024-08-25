@@ -23,22 +23,7 @@ for (let i = 0; i < 3; i++) {
 emojiContainer.innerHTML = emojiIcons;
 
 // Daily message
-const luckyColors = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Pink', 'Teal'];
-const fortunes = ['Great luck!', 'Good luck!', 'Average luck', 'Bad luck... Be careful!'];
-const luckyItems = ['🍀 Four-leaf clover', '🔔 Bell', '🌟 Star', '🐱 Cat', '🦋 Butterfly', '🌈 Rainbow', '🔑 Key', '🎁 Gift'];
-function updateDailyMessage() {
-    const today = new Date();
-    const color = luckyColors[today.getDate() % luckyColors.length];
-    const fortune = fortunes[today.getDate() % fortunes.length];
-    const item = luckyItems[today.getDate() % luckyItems.length];
-    document.getElementById('daily-message').innerHTML = `
-        <strong>${today.toDateString()}</strong><br>
-        Your Today's Lucky Color: ${color}<br>
-        Your Fortune: ${fortune}<br>
-        Your Lucky Item: ${item}
-    `;
-}
-updateDailyMessage();
+
 
 // Visitor counter
 function updateVisitorCount() {
@@ -62,13 +47,6 @@ newsItems.forEach(item => {
 });
 
 // Diary entry
-const diaryEntries = [
-    'Today I learned about CSS Grid. It\'s so much easier than tables!',
-    'Spent the whole day debugging a JavaScript error. It was a missing semicolon...',
-    'Started working on a new web app. Can\'t wait to share it!',
-    'Discovered a cool new VS Code extension. My productivity is skyrocketing!'
-];
-document.getElementById('diary-entry').textContent = diaryEntries[Math.floor(Math.random() * diaryEntries.length)];
 
 
 
