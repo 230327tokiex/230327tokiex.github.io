@@ -1,19 +1,44 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - toki's homepage</title>
-    <link rel="stylesheet" href="css/coming-soon.css">
+    <title>SUPER ELIZA Chat</title>
+    <link rel="stylesheet" href="css/eliza.css">
 </head>
 <body>
-    <div class="construction">
-        <h1><span class="blink">Coming Soon!</span> <span id="random-emoji" class="emoji"></span></h1>
-        <p class="message">このページは現在作成中です。もうしばらくお待ちください！</p>
+    <div class="container">
+        <h1>SUPER ELIZA Chat</h1>
+        
+        <div class="marquee">
+            <span id="marquee-text">ELIZA's spiritual successor, an advanced chatbot (AI-free) inheriting the legacy of AI pioneers!</span>
+        </div>
+
+        <div class="language-toggle">
+            <button id="en-button" class="language-button active">English</button>
+            <button id="jp-button" class="language-button">日本語</button>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="メッセージを入力してください...">
+                <button id="send-button">送信</button>
+            </div>
+        </div>
+
+        <div class="quick-guide">
+            <p>【Hint】特別な機能を試してみてください：</p>
+            <ul>
+                <li>日付や時間を聞く: 「今日は何日？」「今何時？」</li>
+                <li>おみくじを引く: 「おみくじ」</li>
+                <li>選択を手伝う: 「「A」と「B」とどっち？」</li>
+                <li>詳しい使い方: 「【ヘルプ】」や「【マニュアル】」と入力</li>
+            </ul>
+        </div>
+
+        <a href="index.html" class="back-link">Back to Home</a>
     </div>
-    <div class="back-link">
-        <a href="index.html">[back to home]</a>
-    </div>
-    <script src="js/coming-soon.js"></script>
+    <script src="js/eliza.js"></script>
 </body>
 </html>

@@ -1,0 +1,205 @@
+body {
+    font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+    background-color: #CCFFFF;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    color: #FF00FF;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border: 3px dashed #FF00FF;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    color: #FF00FF;
+    text-shadow: 2px 2px #FFFF00;
+}
+
+.chat-container {
+    border: 2px solid #FF00FF; /* マゼンタの枠線 */
+    /* border-radius と box-shadow を削除 */
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.chat-messages {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    border: 0px solid #FF00FF; /* メッセージエリアの枠線はなし */
+}
+
+/* スクロールバーのスタイル */
+.chat-messages::-webkit-scrollbar {
+    width: 12px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #CCFFFF;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #FF00FF;
+    border: 3px solid #CCFFFF;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px;
+    /* border-radius を削除 */
+    max-width: 75%;
+    position: relative;
+}
+
+.message .emoji {
+    position: absolute;
+    top: -18px; /* 吹き出しの上に配置 */
+    font-size: 3em;
+}
+
+
+.message .text {
+    display: inline-block;
+    margin: 0 30px;
+    white-space: pre-wrap; /* 改行を保持 */
+    word-wrap: break-word; /* 長い単語を折り返す */
+}
+
+
+.user-message {
+    background-color: #FFFF00;
+    color: #FF00FF;
+    margin-left: auto;
+    margin-right: 25px;
+    border: 1px solid #FF00FF; /* ユーザーメッセージに枠線を追加 */
+}
+
+.user-message .emoji {
+    right: -25px;
+}
+
+.bot-message {
+    background-color: #FF00FF;
+    color: #FFFFFF;
+    margin-right: auto;
+    margin-left: 25px;
+    border: 1px solid #FFFF00; /* ボットメッセージに枠線を追加 */
+}
+
+.bot-message .emoji {
+    left: -25px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 2px solid #FF00FF;
+    /* border-radius を削除 */
+    font-size: 1em;
+}
+
+#send-button {
+    background-color: #FF00FF;
+    color: #FFFF00;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    /* border-radius を削除 */
+    font-size: 1em;
+}
+
+.marquee {
+    background-color: #FFFF00;
+    color: #FF00FF;
+    padding: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #FF00FF; /* マーキーに枠線を追加 */
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #FF00FF;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #FFFF00;
+}
+
+.language-toggle {
+    margin: 15px 0;
+}
+
+.language-button {
+    background-color: #FF00FF;
+    color: #FFFF00;
+    border: 1px solid #FFFF00; /* 言語ボタンに枠線を追加 */
+    padding: 8px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    /* border-radius を削除 */
+    font-size: 1em;
+}
+
+.language-button.active {
+    background-color: #FFFF00;
+    color: #FF00FF;
+    border: 1px solid #FF00FF; /* アクティブな言語ボタンの枠線色を変更 */
+}
+
+
+/* ... (既存のCSS) ... */
+
+
+.quick-guide {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #FFFF00;
+    border: 2px solid #FF00FF;
+    font-size: 0.9em;
+    text-align: left; /* 左揃えに変更 */
+}
+
+.quick-guide p {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.quick-guide ul {
+    margin: 0;
+    padding-left: 0; /* 左パディングを削除 */
+    list-style-type: none; /* リストマーカーを削除 */
+}
+
+.quick-guide li {
+    margin-bottom: 5px;
+}

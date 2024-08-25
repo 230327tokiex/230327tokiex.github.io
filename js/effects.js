@@ -104,3 +104,10 @@ function toggleUFO() {
 // イベントリスナーの設定
 document.getElementById('confetti-badge').addEventListener('click', toggleConfetti);
 document.getElementById('ufo-badge').addEventListener('click', toggleUFO);
+
+// おや？HTMLファイルにも隠されたメッセージがあるようですね...
+// 両方のファイルをチェックしてくれてありがとう！
+// 君はきっと素晴らしいウェブ探検家だ！🕵️‍♂️✨
+// 
+// さあ、バッジをクリックして楽しもう！
+// 紙吹雪とUFOの世界へようこそ！🎉🛸
