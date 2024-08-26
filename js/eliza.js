@@ -88,6 +88,7 @@ const botResponses = {
         "try: 理解する() except: 混乱する()",
         "update 会話.exe -version 2.0",
         "pip install 新しい知識",
+        "pip install 新しい話題",
         "wget https://ユーザー.com/新情報",
         "curl -X POST ユーザー/挨拶",
         "npm run 楽しい会話",
@@ -581,7 +582,7 @@ function handleUserInput() {
         setTimeout(() => {
             const botMessage = getBotResponse(userMessage);
             addMessage(botMessage, false);
-        }, 2000);//回答に遅延→自然なチャット風に（1-3秒くらい）
+        }, 3000);//回答に遅延→自然なチャット風に（1-3秒くらい）
     }
 }
 
