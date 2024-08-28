@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperELIZA Reinforcement Learning Adventure</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐰</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/gamecommon.css">
+    <link rel="stylesheet" href="css/gamescreen.css">
+    <link rel="stylesheet" href="css/gamestart.css">
+</head>
+<body>
+
+
+
+    <div class="game-container">
+        <div class="bgm-container">
+          <button id="bgm-toggle" class="bgm-button">BGM ON</button>
+        </div>
+      
+        <!-- ゲームスタート画面 -->
+        <div id="start-screen" class="screen">
+          <h1 id="supereliza-reinforcement-learning-adventure" class="game-title">SuperELIZA Reinforcement Learning Adventure</h1>
+          <div id="story-content" class="story-text"></div>
+          <button id="start-game" class="pulse">START ADVENTURE</button>
+        </div>
+      
+        <!-- ゲームメイン画面 -->
+        <div id="game-screen" class="screen hidden">
+          <h1 id="supereliza-reinforcement-learning-adventure-1" class="game-main-title">SuperELIZA Reinforcement Learning Adventure</h1>
+      
+          <div id="game-main">
+            <div class="game-area">
+              <div id="background-overlay"></div>
+              <div id="rabbit-container"></div>
+            </div>
+      
+            <div class="control-panel">
+              <div class="eliza-thoughts">
+                <h2>SuperELIZA's Thoughts</h2>
+                <div id="thought-content"></div>
+              </div>
+              
+              <div class="button-area">
+                <button id="parameter-button" class="parameter-button">PARAMETERS</button>
+                <button id="toggle-learning" class="pulse">START LEARNING</button>
+              </div>
+            </div>
+      
+            <div id="tips-area" class="tips-area">
+              <div id="tips" class="tips"></div>
+            </div>
+          </div>
+      
+          <!-- パラメータモーダル -->
+          <div id="parameter-modal" class="modal hidden">
+            <div class="modal-content">
+              <h2>学習パラメータ</h2>
+              <div class="parameter">
+                学習率: <span id="learning-rate-value">0.1</span>
+                <input type="range" id="learning-rate" min="0" max="1" step="0.1" value="0.1">
+              </div>
+              <div class="parameter">
+                探索率 (イプシロン): <span id="epsilon-value">0.2</span>
+                <input type="range" id="epsilon" min="0" max="1" step="0.1" value="0.2">
+              </div>
+              <div class="parameter">
+                割引率: <span id="discount-rate-value">0.9</span>
+                <input type="range" id="discount-rate" min="0" max="1" step="0.1" value="0.9">
+              </div>
+              <div class="parameter">
+                エピソード数: <span id="episode-count-value">100</span>
+                <input type="number" id="episode-count" min="1" max="1000" value="100">
+              </div>
+              <div class="parameter">
+                <select id="algorithm">
+                  <option value="supereliza">SuperELIZAアルゴリズム</option>
+                </select>
+              </div>
+              <button id="close-modal">CLOSE</button>
+            </div>
+          </div>
+        </div>
+      
+        <!-- ゲームResult画面 -->
+        <div id="results-screen" class="screen hidden">
+          <h1 id="supereliza-reinforcement-learning-adventure-2" class="game-result-title">SuperELIZA Reinforcement Learning Adventure</h1>
+
+          <h2>Learning Results</h2>
+            <!-- グラフ -->
+            <canvas id="learning-chart" width="800" height="300"></canvas>
+          <div id="results-content"></div>
+
+
+          <h2>SuperELIZA's Final Thoughts</h2>
+          <div class="final-thoughts">
+            <p id="final-thought"></p>
+          </div>
+          
+          <button id="restart-game" class="pulse">START NEW ADVENTURE</button>
+        </div>
+      </div>
+
+    <script src="js/gamestart.js"></script>
+    <script src="js/gamescript.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+</html>

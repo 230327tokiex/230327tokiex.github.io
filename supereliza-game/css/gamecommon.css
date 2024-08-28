@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --cyan: #00FFFF;
+    --magenta: #FF00FF;
+    --yellow: #FFFF00;
+    --neon-blue: #4D4DFF;
+    --neon-green: #39FF14;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'VT323', monospace;
+    font-family: "BIZ UDPGothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Meiryo", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: linear-gradient(135deg, var(--cyan), var(--magenta));
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--yellow);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px var(--yellow), 0 0 20px var(--yellow), 0 0 30px var(--yellow);
+    width: 95vw;
+    max-width: 1000px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1, h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--yellow);
+    text-shadow: 2px 2px var(--magenta);
+}
+
+.game-main-title {
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+.game-result-title {
+    font-size:35px;
+    margin-bottom:35px;
+    text-align: center;
+}
+
+button {
+    font-family: 'Press Start 2P', cursive;
+    padding: 10px 20px;
+    background-color: var(--magenta);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--cyan);
+}
+
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+  
+  .blink {
+    animation: blink 1s linear infinite;
+  }
+
+
+.game-container .screen.hidden {
+    display: none !important;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+
+/* スクロールバーのスタイリング */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cyan);
+    border-radius: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-green);
+}
+
+/* Firefoxのスクロールバーに対するスタイリング */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cyan) rgba(0, 0, 0, 0.3);
+}
+
+/* ゲームコンテナ全体のスクロール設定 */
+.game-container {
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+/* 各画面のスクロール設定 */
+#start-screen, #game-screen{
+    overflow-y: auto;
+    height: 100%;
+}
+
+/* 各画面のスクロール設定 */
+#results-screen {
+    overflow-y: auto;
+    height: 100%;
+}
+
+#start-screen::-webkit-scrollbar,
+#game-screen::-webkit-scrollbar,
+#results-screen::-webkit-scrollbar {
+display: none;
+}
+
+
+
+/* スクロール時の挙動を滑らかに */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* 横スクロールを防止 */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.game-container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#start-screen, #game-screen, #results-screen {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+/*BGM*/
+.bgm-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+  }
+  
+  .bgm-button {
+    font-family: 'Press Start 2P', cursive;
+    padding: 5px 10px;
+    background-color: var(--magenta);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.7em; /* 小さいフォントサイズ */
+    text-transform: uppercase;
+  }
+  
+  .bgm-button:hover {
+    background-color: var(--cyan);
+  }
+  
+  .bgm-button.off {
+    background-color: var(--magenta);
+  }

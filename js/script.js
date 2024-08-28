@@ -34,7 +34,8 @@ setInterval(updateVisitorCount, 10000);
 
 // What's New section
 const newsItems = [
-    'Added SUPER ELIZA Chat!',
+    'Added SuperELIZA Reinforcement Learning Adventure(2024.8.28)',
+    'Added SUPER ELIZA Chat!(2024.8.25)',
     'Updated portfolio with latest projects',
     'New retro-style background',
     'Added this What\'s New section!'
