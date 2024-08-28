@@ -1,0 +1,139 @@
+#game-screen, #results-screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+.game-title {
+    margin-bottom: 20px;
+}
+
+#game-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100% - 60px); /* タイトルの高さを引く */
+}
+
+.game-area {
+    width: 100%;
+    height: 40%;
+    background-image: url('img/gamebg1.png');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--cyan);
+    margin-bottom: 20px;
+}
+
+#rabbit-container {
+    position: absolute;
+    transition: all 0.5s ease;
+    /* left と top の初期値を削除 */
+    /* transform を削除 */
+}
+
+
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40%;
+}
+
+/*TIPS*/
+
+.tips-area {
+    width: 100%;
+    margin-top:10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tips {
+    padding: 10px 25px;
+}
+
+
+.eliza-thoughts  {
+    width: 58%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.learning-params {
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#thought-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--cyan);
+}
+
+.parameter {
+    margin-bottom: 10px;
+}
+
+#toggle-learning {
+    margin-top: auto;
+    align-self: center;
+}
+
+/*Result*/
+
+
+#results-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#results-content {
+    margin-bottom: 20px;
+}
+
+#learning-chart {
+    width: 80%;
+    max-width: 600px;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+#restart-game {
+    font-size: 1.2em;
+    padding: 10px 20px;
+}

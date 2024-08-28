@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperELIZA Reinforcement Learning Adventure</title>
+    <link rel="stylesheet" href="gamecommon.css">
+    <link rel="stylesheet" href="gamescreen.css">
+    <link rel="stylesheet" href="gamestart3.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="start-screen" class="screen">
+            <h1 class="game-title">SuperELIZA Reinforcement Learning Adventure</h1>
+            <div id="story-content" class="story-text"></div>
+            <button id="start-game" class="pulse">START ADVENTURE</button>
+        </div>
+
+        <div id="game-screen" class="screen hidden">
+            <h1 class="game-title">SuperELIZA Reinforcement Learning Adventure</h1>
+            <div id="game-main">
+                <div class="game-area">
+                    <div id="background-overlay"></div>
+                    <div id="rabbit-container">
+                        <img src="img/usagi12.png" alt="rabbit">
+                    </div>
+                </div>
+                <div class="control-panel">
+                    <div class="eliza-thoughts">
+                        <h2>SuperELIZAの思考</h2>
+                        <div id="thought-content"></div>
+                    </div>
+                    <div class="learning-params">
+                        <h2>学習パラメータ</h2>
+                        <div class="parameter">
+                            学習率: <input type="range" id="learning-rate" min="0" max="1" step="0.1" value="0.1">
+                            <span id="learning-rate-value">0.1</span>
+                        </div>
+                        <div class="parameter">
+                            探索率 (イプシロン): <input type="range" id="epsilon" min="0" max="1" step="0.1" value="0.2">
+                            <span id="epsilon-value">0.2</span>
+                        </div>
+                        <div class="parameter">
+                            割引率: <input type="range" id="discount-rate" min="0" max="1" step="0.1" value="0.9">
+                            <span id="discount-rate-value">0.9</span>
+                        </div>
+                        <div class="parameter">
+                            エピソード数: <input type="number" id="episode-count" min="1" max="1000" value="100">
+                        </div>
+                        <div class="parameter">
+                            アルゴリズム: 
+                            <select id="algorithm">
+                                <option value="super-eliza">SuperELIZAアルゴリズム</option>
+                                <option value="q-learning">Q学習</option>
+                                <option value="sarsa">SARSA</option>
+                            </select>
+                        </div>
+                        <button id="toggle-learning">START LEARNING</button>
+                    </div>
+                </div>
+
+                <div id="tips-area" class="tips-area">
+                    <div id="tips" class="tips">TIPS:</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="results-screen" class="screen hidden">
+            <h1 class="game-title">SuperELIZA Reinforcement Learning Adventure</h1>
+            <h2>学習結果</h2>
+            <div id="results-content"></div>
+            <button id="restart-game">START NEW ADVENTURE</button>
+        </div>
+    </div>
+
+    <script src="gamestart.js"></script>
+    <script src="gamescript.js"></script>
+    <script src="results.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --cyan: #00FFFF;
+    --magenta: #FF00FF;
+    --yellow: #FFFF00;
+    --neon-blue: #4D4DFF;
+    --neon-green: #39FF14;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'VT323', monospace;
+    background: linear-gradient(135deg, var(--cyan), var(--magenta));
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--yellow);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px var(--yellow), 0 0 20px var(--yellow), 0 0 30px var(--yellow);
+    width: 90vw;
+    max-width: 1200px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--yellow);
+    text-shadow: 2px 2px var(--magenta);
+}
+
+h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-area {
+    height: 300px;
+    background-image: url('game-background.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--cyan);
+    margin-bottom: 20px;
+}
+
+#rabbit-container {
+    font-size: 48px;
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.eliza-thoughts, .learning-params {
+    width: 48%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#thought-content {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--cyan);
+}
+
+.parameter {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    font-size: 14px;
+}
+
+input[type="range"], input[type="number"], select {
+    width: 150px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: var(--magenta);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--cyan);
+}
+
+.hidden {
+    display: none;
+}
+
+#results-screen {
+    text-align: center;
+}
+
+#results-content {
+    margin-bottom: 20px;
+}
+
+#learning-chart {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    margin: 0 auto 20px;
+}
+
+#restart-game {
+    margin-top: 20px;
+}
+
+/* CRT効果 (前回と同じ) 
+.game-container::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 2;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+}
+*/
+
+
+@keyframes flicker {
+    0% {
+        opacity: 0.27861;
+    }
+    5% {
+        opacity: 0.34769;
+    }
+    10% {
+        opacity: 0.23604;
+    }
+    15% {
+        opacity: 0.90626;
+    }
+    20% {
+        opacity: 0.18128;
+    }
+    25% {
+        opacity: 0.83891;
+    }
+    30% {
+        opacity: 0.65583;
+    }
+    35% {
+        opacity: 0.67807;
+    }
+    40% {
+        opacity: 0.26559;
+    }
+    45% {
+        opacity: 0.84693;
+    }
+    50% {
+        opacity: 0.96019;
+    }
+    55% {
+        opacity: 0.08594;
+    }
+    60% {
+        opacity: 0.20313;
+    }
+    65% {
+        opacity: 0.71988;
+    }
+    70% {
+        opacity: 0.53455;
+    }
+    75% {
+        opacity: 0.37288;
+    }
+    80% {
+        opacity: 0.71428;
+    }
+    85% {
+        opacity: 0.70419;
+    }
+    90% {
+        opacity: 0.7003;
+    }
+    95% {
+        opacity: 0.36108;
+    }
+    100% {
+        opacity: 0.24387;
+    }
+}
+
+
+/*START*/
+
+
+.story-text {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    line-height: 1.3;
+    text-align: center;
+    margin-bottom: 20px;
+    max-width: 800px;
+    height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--cyan);
+    scrollbar-width: thin;
+    scrollbar-color: var(--cyan) rgba(0, 0, 0, 0.3);
+}
+
+.story-text::-webkit-scrollbar {
+    width: 8px;
+}
+
+.story-text::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.story-text::-webkit-scrollbar-thumb {
+    background-color: var(--cyan);
+    border-radius: 4px;
+}
+
+/* 画面遷移のためのスタイル */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
