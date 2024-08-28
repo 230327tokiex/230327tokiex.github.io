@@ -41,7 +41,7 @@
 
 .game-area {
     width: 100%;
-    height: 60%;
+    height: 68%;
     background-image: url('img/gamebg1.png');
     background-size: cover;
     background-position: center;
@@ -61,7 +61,7 @@
 .control-panel {
     display: flex;
     width: 100%;
-    height: 40%;
+    height: 30%;
     margin-top: 0px;
 }
 
@@ -87,7 +87,7 @@ font-size: 14px;
     padding: 5px 15px;
     background-color: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--cyan);
-    font-size: 1.6em;
+    font-size: 1.4em;
     line-height: 1.2;
 }
 
@@ -187,8 +187,8 @@ font-size: 14px;
 .tips {
     font-family: Arial, sans-serif;  /* または他の読みやすいフォント */
     color: var(--yellow);
-    font-size: 1em;
-    line-height: 1.4;
+    font-size: 0.8em;
+    line-height: 1.2;
 }
 
 

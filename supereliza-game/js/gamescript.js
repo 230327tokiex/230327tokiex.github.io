@@ -83,9 +83,6 @@ function changeBackgroundImage() {
 //changeBackgroundImage();
 
 
-
-
-
 //うさぎ画像
 
 
@@ -95,7 +92,6 @@ const rabbitEmojis = [
     'img/usagi11.png', 'img/usagi12.png', 'img/usagi14.png', 'img/usagi15.png',
     'img/usagi16.png', 'img/usagi17.png', 'img/usagi18.png',
 ];
-
 
 
 // うさぎ画像をランダムに変更し、初期位置に配置する関数
@@ -124,7 +120,7 @@ function moveRabbit() {
 
     // ゲームエリアの範囲
     const maxX = gameArea.clientWidth * 0.95;
-    const maxY = gameArea.clientHeight * 0.70;
+    const maxY = gameArea.clientHeight * 0.80;
     const x = Math.random() * maxX - maxX * 0.01; // -1%から101%の範囲
     const y = Math.random() * maxY - maxY * 0.01; // -1%から101%の範囲
 
