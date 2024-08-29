@@ -54,6 +54,22 @@ const backgroundImages = [
     'img/gamebg13.png',
     'img/gamebg14.png',
     'img/gamebg15.png',
+    'img/gamebg16.png',
+    'img/gamebg17.png',
+    'img/gamebg18.png',
+    'img/gamebg19.png',
+    'img/gamebg21.png',
+    'img/gamebg22.png',
+    'img/gamebg23.png',
+    'img/gamebg24.png',
+    'img/gamebg25.png',
+    'img/gamebg26.png',
+    'img/gamebg27.png',
+    'img/gamebg28.png',
+    'img/gamebg29.png',
+    'img/gamebg30.png',
+    'img/gamebg31.png',
+    'img/gamebg32.png',
 
 ];
 
