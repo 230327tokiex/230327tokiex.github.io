@@ -198,8 +198,8 @@ const submitTexts = {
 };
 
 const marqueeTexts = {
-    jp: "ELIZAの精神を受け継いだ、AIパイオニアの遺産を継承する高度なチャットボット（AI非搭載）です！",
-    en: "An advanced chatbot (AI-free) inheriting the legacy of AI pioneers, in the spirit of ELIZA!"
+    jp: "ELIZAの精神を受け継いだ、AIパイオニアの遺産を継承する高度なチャットボット（生成AI非搭載）です！",
+    en: "An advanced chatbot (generative AI-free) inheriting the legacy of AI pioneers, in the spirit of ELIZA!"
 };
 
 
@@ -587,7 +587,7 @@ function handleUserInput() {
         setTimeout(() => {
             const botMessage = getBotResponse(userMessage);
             addMessage(botMessage, false);
-        }, 3000);//回答に遅延→自然なチャット風に（1-3秒くらい）
+        }, 2000);//回答に遅延→自然なチャット風に（1-3秒くらい）
     }
 }
 
