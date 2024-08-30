@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperELIZA Match3 Game</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😎</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="matchstyle.css">
+    <script src="tips.js"></script>
+    <script src="matchscript.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">SuperELIZA Match3 Game</h1>
+            <div class="score-container">
+            </div>
+        </div>
+        <div class="game-content">
+            <div id="game-board" class="game-board"></div>
+                <!-- game-info -->
+                <div class="game-info">
+                    <h2>TIME & SCORE</h2>
+                    <div id="time-score" class="time-score">
+                    <div class="timer">
+                        Time: <span id="timer">60</span>s
+                    </div>
+                    <div>
+                        Your Score: <span id="player-score">0</span>
+                    </div>
+                    <div>
+                        Super ELIZA Score: <span id="eliza-score">0</span>
+                    </div>
+                    </div>
+                    
+                    <h2>SuperELIZA's thoughts</h2>
+                    <div id="eliza-thoughts" class="eliza-thoughts"></div>
+                    
+                    <button id="start-game" class="button">GAME START</button>
+                    <button onclick="openSettings()" class="button">Settings</button>
+                    <button onclick="openStory()" class="button">Story</button>
+                </div>
+                
+                <!-- エンディングモーダル -->
+                <div id="ending-modal" class="modal">
+                    <div class="modal-content ending-content">
+                    <span class="close" onclick="closeEnding()">&times;</span>
+                    <div id="ending-story"></div>
+                    </div>
+                </div>
+                
+                <!-- ストーリーモーダル -->
+                <div id="story-modal" class="modal">
+                    <div class="modal-content story-content">
+                    <span class="close" onclick="closeStory()">&times;</span>
+                    <div class="tab">
+                        <button class="tablinks" onclick="openTab(event, 'Story')" id="defaultOpen">STORY</button>
+                        <button class="tablinks" onclick="openTab(event, 'Help')">HELP</button>
+                    </div>
+                    <div id="Story" class="tabcontent">
+                        <h2>GAME STORY</h2>
+                        <div id="story-text"></div>
+                    </div>
+                    <div id="Help" class="tabcontent">
+                        <h2>GAME HELP</h2>
+                        <div id="help-text"></div>
+                    </div>
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="tips" id="tips"><span class="tips-label">TIPS:</span> SuperELIZAは裏側で強化学習を行っています。あなたが見ているのは対戦用の画面だけです！</div>
+
+    </div>
+
+    <!-- 設定モーダル -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+        <span class="close" onclick="closeSettings()">&times;</span>
+        <h2>Game Settings</h2>
+        <div class="settings-group">
+            <label for="game-duration">Game Duration (seconds):</label>
+            <input type="number" id="game-duration" min="10" max="300" step="10" value="30">
+        </div>
+        
+        <div class="settings-group">
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            </select>
+        </div>
+        
+        <div class="settings-group">
+            <label>BGM:</label>
+            <div>
+            <input type="radio" id="bgm-on" name="bgm" value="on">
+            <label for="bgm-on">On</label>
+            <input type="radio" id="bgm-off" name="bgm" value="off" checked>
+            <label for="bgm-off">Off</label>
+            </div>
+        </div>
+        
+        <div class="settings-group">
+            <button onclick="clearStats()" class="button">Clear Stats</button>
+        </div>
+        
+        <div class="settings-group">
+            <button onclick="saveSettings()" class="button">Save</button>
+        </div>
+        </div>
+    </div>
+
+
+    </script>
+</body>
+</html>
