@@ -362,3 +362,136 @@ h2 {
     padding: 5px;
   }
   
+
+  /* ゲーム辞典のスタイル */
+.dictionary-title {
+    color: #FF00FF;
+    text-shadow: 2px 2px #FFFF00;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.dictionary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFF00;
+    border: 2px solid #FF00FF;
+}
+
+.dictionary-table th {
+    background-color: #FF00FF;
+    color: #FFFF00;
+    padding: 10px;
+    text-align: left;
+}
+
+.dictionary-table td {
+    padding: 8px;
+    border-bottom: 1px solid #FF00FF;
+}
+
+.dictionary-table tr:nth-child(even) {
+    background-color: #FFFF99;
+}
+
+.dictionary-table tr:hover {
+    background-color: #FF99FF;
+    color: #FFFF00;
+}
+
+/*マッチのeffect*/
+
+@keyframes glow {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.1); filter: brightness(1.5); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+.tile.matched-glow {
+    animation: glow 0.3s ease-in-out;
+}
+
+.tile.exploding {
+    background-color: transparent;
+}
+
+.particle {
+    position: absolute;
+    font-size: 0.5em;
+    pointer-events: none;
+    animation: explode 0.5s ease-out forwards;
+}
+
+@keyframes explode {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+}
+
+.tile.sparkling {
+    overflow: visible;
+}
+
+
+/*マッチeffect*/
+
+.effect-item {
+    position: absolute;
+    pointer-events: none;
+    animation: spread 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.star {
+    width: 5px;
+    height: 5px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.circle {
+    width: 5x;
+    height: 5px;
+    border-radius: 50%;
+}
+
+.square {
+    width: 5px;
+    height: 5px;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 17px solid;
+}
+
+@keyframes spread {
+    0% { transform: translate(0, 0) scale(0); opacity: 0; }
+    50% { transform: translate(var(--x), var(--y)) scale(1); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) scale(0.5); opacity: 0; }
+}
+
+@keyframes spiral {
+    0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 0; }
+    50% { transform: translate(var(--x), var(--y)) scale(1) rotate(180deg); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) scale(0.5) rotate(360deg); opacity: 0; }
+}
+
+@keyframes bounce {
+    0%, 20% { transform: translate(0, 0) scale(0); opacity: 0; }
+    40% { transform: translate(calc(var(--x) * 0.4), calc(var(--y) * 0.4)) scale(0.7); opacity: 1; }
+    60% { transform: translate(calc(var(--x) * 0.8), calc(var(--y) * 0.8)) scale(1); opacity: 1; }
+    80% { transform: translate(var(--x), var(--y)) scale(0.8); opacity: 0.8; }
+    100% { transform: translate(var(--x), var(--y)) scale(0.5); opacity: 0; }
+}
+
+.effect-item {
+    position: absolute;
+    pointer-events: none;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+

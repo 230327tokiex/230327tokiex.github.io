@@ -7,8 +7,8 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😎</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="matchstyle.css">
-    <script src="tips.js"></script>
-    <script src="matchscript.js"></script>
+
+
 </head>
 <body>
     <div class="game-container">
@@ -57,6 +57,7 @@
                     <div class="tab">
                         <button class="tablinks" onclick="openTab(event, 'Story')" id="defaultOpen">STORY</button>
                         <button class="tablinks" onclick="openTab(event, 'Help')">HELP</button>
+                        <button class="tablinks" onclick="openTab(event, 'GameDictionary')">ACHIEVEMENT</button>
                     </div>
                     <div id="Story" class="tabcontent">
                         <h2>GAME STORY</h2>
@@ -66,12 +67,16 @@
                         <h2>GAME HELP</h2>
                         <div id="help-text"></div>
                     </div>
+                    <div id="GameDictionary" class="tabcontent">
+                        <h2>Achievement</h2>
+                        <div id="game-dictionary"></div>
+                    </div>
                     </div>
                 </div>
 
         </div>
 
-        <div class="tips" id="tips"><span class="tips-label">TIPS:</span> SuperELIZAは裏側で強化学習を行っています。あなたが見ているのは対戦用の画面だけです！</div>
+        <div class="tips" id="tips"><span class="tips-label">TIPS:</span> 🍩SuperELIZAは裏側で強化学習を行っています。あなたが見ているのは対戦用の画面だけです！</div>
 
     </div>
 
@@ -91,6 +96,26 @@
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
+            </select>
+        </div>
+
+        <div class="settings-group">
+            Emoji Set:
+            <select id="emoji-set" onchange="updateEmojiSet()">
+                <script>
+                    const currentMonth = new Date().getMonth() + 1;
+                    if (currentMonth === 10) {
+                        document.write('<option value="Halloween">Halloween 🎃(季節限定)</option>');
+                    } else if (currentMonth === 12) {
+                        document.write('<option value="Christmas">Christmas 🎄(季節限定)</option>');
+                    }
+                </script>
+                <option value="ELIZA(SS)">ELIZA (SS)：🧸🪐🍬🍹🚗🦈🛸...</option>
+                <option value="Fruits(A)">Fruits (A)：🍎🍌🍇...</option>
+                <option value="Cafe(A)">Cafe (A)：☕🍪🍰...</option>
+                <option value="Heart(A)">Heart (A)：🧡💛💚💙...</option>
+                <option value="Forest(A)">Forest(A)：'🌳🐻🐿️...</option>
+                <option value="Sea(A)">Sea(A)：🐠🐙🐋...</option>
             </select>
         </div>
         
@@ -116,5 +141,13 @@
 
 
     </script>
+
+
+<!--JavaScript-->
+<script src="gameData.js"></script>
+<script src="config.js"></script>
+<script src="utils.js"></script>
+<script src="matchscript.js"></script>
+
 </body>
 </html>
