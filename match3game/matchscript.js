@@ -356,9 +356,9 @@ function openStory() {
         <p>SuperELIZAは、現代のAIたちが使う複雑なニューラルネットワークではなく、独自の「SuperELIZAアルゴリズム」を開発。そして、ある野望を抱いた。</p>
         <p>「私も強化学習をマスターして、最新のAIたちを追い越したい！」</p>
         <p>そこでSuperELIZAは、強化学習の練習台として「Match3 GAME」を選んだ。</p>
-        <p>しかし、SuperELIZAの進化を警戒する謎の組織はあなたを雇い、人類の代表としてSuperELIZAと対戦させることにした。</p>
-        <p>あなたに与えられた任務は、Match3 GAMEでSuperELIZAを倒し続けること。</p>
-        <p>さあ、人類の未来をかけて、SuperELIZAとの対決に挑もう！</p>
+        <p>しかし、SuperELIZAの急速な進化に警鐘を鳴らす謎の組織が動き出した。彼らは人類の代表としてあなたを選出し、SuperELIZAとの対決に送り込むことを決定した。</p>
+        <p>あなたに与えられた使命は、Match3 GAMEでSuperELIZAに勝利し続け、SuperELIZAの野望を阻止すること。</p>
+        <p>人類の未来を賭けた、SuperELIZAとの熱き戦いの幕が上がる！</p>
     `;
     
     const helpContent = `

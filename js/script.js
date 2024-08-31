@@ -34,6 +34,7 @@ setInterval(updateVisitorCount, 10000);
 
 // What's New section
 const newsItems = [
+    'Added SuperELIZA Match 3 GAME(2024.8.30)',
     'Added SuperELIZA Reinforcement Learning Adventure(2024.8.28)',
     'Added SUPER ELIZA Chat!(2024.8.25)',
     'Updated portfolio with latest projects',
