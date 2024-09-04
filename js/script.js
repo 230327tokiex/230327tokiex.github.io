@@ -33,7 +33,9 @@ function updateVisitorCount() {
 setInterval(updateVisitorCount, 10000);
 
 // What's New section
+/*
 const newsItems = [
+    'Added AI-Generated Apps(2024.9.4)',
     'Added SuperELIZA Match 3 GAME(2024.8.31)',
     'Added SuperELIZA Reinforcement Learning Adventure(2024.8.28)',
     'Added SUPER ELIZA Chat!(2024.8.25)',
@@ -47,6 +49,7 @@ newsItems.forEach(item => {
     li.textContent = item;
     newsList.appendChild(li);
 });
+*/
 
 // Diary entry
 
