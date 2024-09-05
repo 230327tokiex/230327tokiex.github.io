@@ -43,22 +43,17 @@
             color: #ffffff;
             opacity: 0.5;
         }
-        #links-icon, #gradient-icon {
+        #settings-icon {
             position: fixed;
             top: 20px;
+            right: 20px;
             color: white;
             cursor: pointer;
             z-index: 1000;
             opacity: 0.5;
             transition: opacity 0.3s ease;
         }
-        #links-icon {
-            left: 20px;
-        }
-        #gradient-icon {
-            right: 20px;
-        }
-        #links-icon:hover, #gradient-icon:hover {
+        #settings-icon:hover {
             opacity: 1;
         }
         .modal {
@@ -73,31 +68,28 @@
             background-color: rgba(0,0,0,0.4);
             backdrop-filter: blur(5px);
         }
-
-
-.modal-content {
-    background: linear-gradient(-45deg, rgba(238,119,82,0.8), rgba(231,60,126,0.8), rgba(35,166,213,0.8), rgba(35,213,171,0.8));
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    margin: 5% auto; /* 上下のマージンを減らして、より多くのスペースを確保 */
-    padding: 30px;
-    border: 1px solid rgba(255,255,255,0.2);
-    width: 90%; /* 幅を広げる */
-    max-width: 800px; /* 最大幅を増やす */
-    height: 80%; /* 高さを指定 */
-    max-height: 800px; /* 最大高さを指定 */
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    color: white;
-    overflow-y: auto; /* スクロール可能にする */
-
-}
-
-.modal h2 {
-    margin-top: 0;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-}
+        .modal-content {
+            background: linear-gradient(-45deg, rgba(238,119,82,0.8), rgba(231,60,126,0.8), rgba(35,166,213,0.8), rgba(35,213,171,0.8));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            width: 90%;
+            max-width: 800px;
+            height: 80%;
+            max-height: 800px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            color: white;
+            overflow-y: auto;
+        }
+        .modal h2 {
+            margin-top: 0;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-family: 'Cinzel Decorative', cursive;
+        }
         .close {
             color: rgba(255,255,255,0.8);
             float: right;
@@ -109,11 +101,6 @@
         .close:hover,
         .close:focus {
             color: #ffffff;
-        }
-        .modal h2 {
-            margin-top: 0;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         #linksList, #gradientList {
             list-style-type: none;
@@ -131,7 +118,7 @@
             font-size: 18px;
             transition: all 0.3s ease;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            font-family: Arial, sans-serif; /* サンセリフフォントを指定 */
+            font-family: Arial, sans-serif;
         }
         #linksList li a:hover {
             color: #ffffff;
@@ -150,7 +137,7 @@
         }
         #addLinkForm {
             margin-top: 20px;
-            font-family: Arial, sans-serif; /* サンセリフフォントを指定 */
+            font-family: Arial, sans-serif;
         }
         #addLinkForm input {
             width: 70%;
@@ -158,7 +145,7 @@
             margin-right: 10px;
             border: none;
             border-radius: 5px;
-            font-family: Arial, sans-serif; /* サンセリフフォントを指定 */
+            font-family: Arial, sans-serif;
         }
         #addLinkForm button {
             padding: 10px 15px;
@@ -168,7 +155,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: Arial, sans-serif; /* サンセリフフォントを指定 */
+            font-family: Arial, sans-serif;
         }
         #addLinkForm button:hover {
             background-color: rgba(255,255,255,0.3);
@@ -182,6 +169,46 @@
         #gradientList li:hover {
             background-color: rgba(255,255,255,0.1);
         }
+        .tab {
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+            color: white;
+        }
+        .tab button:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        .tab button.active {
+            background-color: rgba(255,255,255,0.2);
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            font-family: Arial, sans-serif;
+        }
+        #clearStorageBtn {
+            padding: 10px 15px;
+            background-color: rgba(255, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease;
+        }
+        #clearStorageBtn:hover {
+            background-color: rgba(255, 0, 0, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -189,32 +216,39 @@
         <div id="clock"></div>
         <div id="date"></div>
     </div>
-    <div id="links-icon">
-        <i data-lucide="link" size="32"></i>
-    </div>
-    <div id="gradient-icon">
-        <i data-lucide="palette" size="32"></i>
+    <div id="settings-icon">
+        <i data-lucide="settings" size="32"></i>
     </div>
 
-    <div id="linksModal" class="modal">
+    <div id="settingsModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Links</h2>
-            <ul id="linksList"></ul>
-            
-            <form id="addLinkForm">
-                <input type="text" id="linkName" placeholder="Link Name" required>
-                <input type="url" id="linkUrl" placeholder="https://example.com" required>
-                <button type="submit">Add Link</button>
-            </form>
-        </div>
-    </div>
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'LinksTab')" id="defaultOpen">Links</button>
+                <button class="tablinks" onclick="openTab(event, 'GradientsTab')">Gradients</button>
+                <button class="tablinks" onclick="openTab(event, 'ClearDataTab')">Clear Data</button>
+            </div>
 
-    <div id="gradientModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Gradients</h2>
-            <ul id="gradientList"></ul>
+            <div id="LinksTab" class="tabcontent">
+                <h2>Links</h2>
+                <ul id="linksList"></ul>
+                <form id="addLinkForm">
+                    <input type="text" id="linkName" placeholder="Link Name" required>
+                    <input type="url" id="linkUrl" placeholder="https://example.com" required>
+                    <button type="submit">Add Link</button>
+                </form>
+            </div>
+
+            <div id="GradientsTab" class="tabcontent">
+                <h2>Gradients</h2>
+                <ul id="gradientList"></ul>
+            </div>
+
+            <div id="ClearDataTab" class="tabcontent">
+                <h2>Clear All Data</h2>
+                <p>Warning: This action will delete all saved links and settings. This cannot be undone.</p>
+                <button id="clearStorageBtn">Clear All Data</button>
+            </div>
         </div>
     </div>
 
@@ -230,17 +264,11 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // Links management
-        const linksModal = document.getElementById("linksModal");
-        const linksBtn = document.getElementById("links-icon");
+        const settingsModal = document.getElementById("settingsModal");
+        const settingsBtn = document.getElementById("settings-icon");
         const linksList = document.getElementById("linksList");
         const addLinkForm = document.getElementById("addLinkForm");
-
-        // Gradient management
-        const gradientModal = document.getElementById("gradientModal");
-        const gradientBtn = document.getElementById("gradient-icon");
         const gradientList = document.getElementById("gradientList");
-
         const spans = document.getElementsByClassName("close");
 
         const gradients = [
@@ -260,36 +288,28 @@
             { name: "Neon Nights", colors: "#39ff14, #ff3131, #1f51ff, #ff1493, #ffd700" },
         ];
 
-        linksBtn.onclick = function() {
-            linksModal.style.display = "block";
+        settingsBtn.onclick = function() {
+            settingsModal.style.display = "block";
             displayLinks();
-        }
-
-        gradientBtn.onclick = function() {
-            gradientModal.style.display = "block";
             displayGradients();
         }
 
         for (let span of spans) {
             span.onclick = function() {
-                linksModal.style.display = "none";
-                gradientModal.style.display = "none";
+                settingsModal.style.display = "none";
             }
         }
 
         window.onclick = function(event) {
-            if (event.target == linksModal) {
-                linksModal.style.display = "none";
-            }
-            if (event.target == gradientModal) {
-                gradientModal.style.display = "none";
+            if (event.target == settingsModal) {
+                settingsModal.style.display = "none";
             }
         }
 
         const defaultLinks = [
             { name: "Claude", url: "https://claude.ai/" },
             { name: "Google", url: "https://www.google.com/" },
-            { name: "toki's homepage", url: "https://230327tokiex.github.io/" }  // 
+            { name: "toki's homepage", url: "https://230327tokiex.github.io/" } , 
         ];
 
         function getLinks() {
@@ -335,45 +355,67 @@
         }
 
         linksList.onclick = function(e) {
-            if (e.target.classList.contains('deleteBtn')) {
-                const index = e.target.getAttribute('data-index');
-                const links = getLinks();
-                links.splice(index, 1);
-                saveLinks(links);
-                displayLinks();
-            }
-        }
+    if (e.target.classList.contains('deleteBtn')) {
+        const index = e.target.getAttribute('data-index');
+        const links = getLinks();
+        links.splice(index, 1);
+        saveLinks(links);
+        displayLinks();
+    }
+}
 
-        function displayGradients() {
-            gradientList.innerHTML = '';
-            gradients.forEach((gradient, index) => {
-                const li = document.createElement('li');
-                li.textContent = gradient.name;
-                li.style.background = `linear-gradient(45deg, ${gradient.colors})`;
-                li.onclick = () => setGradient(gradient.colors);
-                gradientList.appendChild(li);
-            });
-        }
+function displayGradients() {
+    gradientList.innerHTML = '';
+    gradients.forEach((gradient, index) => {
+        const li = document.createElement('li');
+        li.textContent = gradient.name;
+        li.style.background = `linear-gradient(45deg, ${gradient.colors})`;
+        li.onclick = () => setGradient(gradient.colors);
+        gradientList.appendChild(li);
+    });
+}
 
-        function setGradient(colors) {
-            const container = document.querySelector('.container');
-            container.style.backgroundImage = `linear-gradient(-45deg, ${colors})`;
-            localStorage.setItem('currentGradient', colors);
-            gradientModal.style.display = "none";
-        }
+function setGradient(colors) {
+    const container = document.querySelector('.container');
+    container.style.backgroundImage = `linear-gradient(-45deg, ${colors})`;
+    localStorage.setItem('currentGradient', colors);
+    settingsModal.style.display = "none";
+}
 
-        // ページ読み込み時に保存されたグラデーションを適用
-        // window.onload 関数を修正
-        window.onload = function() {
-            const savedGradient = localStorage.getItem('currentGradient');
-            if (savedGradient) {
-                setGradient(savedGradient);
-            }
-            initializeLinks();  // この行を追加
-        }
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
 
-        // Lucide icons initialization
-        lucide.createIcons();
-    </script>
+const clearStorageBtn = document.getElementById('clearStorageBtn');
+
+clearStorageBtn.onclick = function() {
+    if (confirm('Are you sure you want to clear all saved data? This action cannot be undone.')) {
+        localStorage.clear();
+        alert('All data has been cleared. The page will now reload.');
+        location.reload();
+    }
+}
+
+window.onload = function() {
+    const savedGradient = localStorage.getItem('currentGradient');
+    if (savedGradient) {
+        setGradient(savedGradient);
+    }
+    initializeLinks();
+    document.getElementById("defaultOpen").click();
+}
+
+lucide.createIcons();
+</script>
 </body>
 </html>
