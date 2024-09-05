@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Home Page</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏰</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Cinzel Decorative', cursive;
+            overflow: hidden;
+        }
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        }
+        .gradient-bg {
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        #clock {
+            font-size: 10rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            opacity: 0.5;
+        }
+        #date {
+            font-size: 1.5rem;
+            color: #ffffff;
+            opacity: 0.5;
+        }
+        #links-icon, #gradient-icon {
+            position: fixed;
+            top: 20px;
+            color: white;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        #links-icon {
+            left: 20px;
+        }
+        #gradient-icon {
+            right: 20px;
+        }
+        #links-icon:hover, #gradient-icon:hover {
+            opacity: 1;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
+        }
+
+
+.modal-content {
+    background: linear-gradient(-45deg, rgba(238,119,82,0.8), rgba(231,60,126,0.8), rgba(35,166,213,0.8), rgba(35,213,171,0.8));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    margin: 5% auto; /* 上下のマージンを減らして、より多くのスペースを確保 */
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 90%; /* 幅を広げる */
+    max-width: 800px; /* 最大幅を増やす */
+    height: 80%; /* 高さを指定 */
+    max-height: 800px; /* 最大高さを指定 */
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    color: white;
+    overflow-y: auto; /* スクロール可能にする */
+
+}
+
+.modal h2 {
+    margin-top: 0;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+        .close {
+            color: rgba(255,255,255,0.8);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close:hover,
+        .close:focus {
+            color: #ffffff;
+        }
+        .modal h2 {
+            margin-top: 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        #linksList, #gradientList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #linksList li, #gradientList li {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #linksList li a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            font-family: Arial, sans-serif; /* サンセリフフォントを指定 */
+        }
+        #linksList li a:hover {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .deleteBtn {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        .deleteBtn:hover {
+            color: #ffffff;
+        }
+        #addLinkForm {
+            margin-top: 20px;
+            font-family: Arial, sans-serif; /* サンセリフフォントを指定 */
+        }
+        #addLinkForm input {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif; /* サンセリフフォントを指定 */
+        }
+        #addLinkForm button {
+            padding: 10px 15px;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif; /* サンセリフフォントを指定 */
+        }
+        #addLinkForm button:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+        #gradientList li {
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        #gradientList li:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container gradient-bg">
+        <div id="clock"></div>
+        <div id="date"></div>
+    </div>
+    <div id="links-icon">
+        <i data-lucide="link" size="32"></i>
+    </div>
+    <div id="gradient-icon">
+        <i data-lucide="palette" size="32"></i>
+    </div>
+
+    <div id="linksModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Links</h2>
+            <ul id="linksList"></ul>
+            
+            <form id="addLinkForm">
+                <input type="text" id="linkName" placeholder="Link Name" required>
+                <input type="url" id="linkUrl" placeholder="https://example.com" required>
+                <button type="submit">Add Link</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="gradientModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Gradients</h2>
+            <ul id="gradientList"></ul>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const date = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('clock').textContent = time;
+            document.getElementById('date').textContent = date;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Links management
+        const linksModal = document.getElementById("linksModal");
+        const linksBtn = document.getElementById("links-icon");
+        const linksList = document.getElementById("linksList");
+        const addLinkForm = document.getElementById("addLinkForm");
+
+        // Gradient management
+        const gradientModal = document.getElementById("gradientModal");
+        const gradientBtn = document.getElementById("gradient-icon");
+        const gradientList = document.getElementById("gradientList");
+
+        const spans = document.getElementsByClassName("close");
+
+        const gradients = [
+            { name: "Default", colors: "#ee7752, #e73c7e, #23a6d5, #23d5ab" },
+            { name: "Sunset", colors: "#ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff" },
+            { name: "Forest", colors: "#1abc9c, #16a085, #2ecc71, #27ae60, #3498db" },
+            { name: "Cosmic", colors: "#6a0572, #ab83a1, #15b7b9, #10ddc2, #f5fec0" },      
+            { name: "Deep Ocean", colors: "#000080, #1f51ff, #00ffff, #87ceeb, #e0ffff" },
+            { name: "Autumn Blaze", colors: "#8b4513, #ff4500, #ffa500, #ffff00, #32cd32" },
+            { name: "Northern Lights", colors: "#4b0082, #9400d3, #32cd32, #00ffff, #ff1493" },
+            { name: "Tropical Paradise", colors: "#ff6b6b, #4ecdc4, #45b7d1, #f7d794, #ff8906" },
+            { name: "Cyberpunk City", colors: "#ff00ff, #00ffff, #ff00aa, #aa00ff, #ffaa00" },
+            { name: "Desert Sunset", colors: "#ff4e50, #fc913a, #f9d62e, #eae374, #e2f4c7" },
+            { name: "Frozen Tundra", colors: "#ffffff, #e0ffff, #b0e0e6, #87ceeb, #4169e1" },
+            { name: "Volcanic Fury", colors: "#ff0000, #ff4500, #ff6347, #ff7f50, #ffa07a" },
+            { name: "Electric Dreams", colors: "#ff00ff, #00ffff, #ffff00, #ff00aa, #00aaff" },
+            { name: "Neon Nights", colors: "#39ff14, #ff3131, #1f51ff, #ff1493, #ffd700" },
+        ];
+
+        linksBtn.onclick = function() {
+            linksModal.style.display = "block";
+            displayLinks();
+        }
+
+        gradientBtn.onclick = function() {
+            gradientModal.style.display = "block";
+            displayGradients();
+        }
+
+        for (let span of spans) {
+            span.onclick = function() {
+                linksModal.style.display = "none";
+                gradientModal.style.display = "none";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target == linksModal) {
+                linksModal.style.display = "none";
+            }
+            if (event.target == gradientModal) {
+                gradientModal.style.display = "none";
+            }
+        }
+
+        const defaultLinks = [
+            { name: "Claude", url: "https://claude.ai/" },
+            { name: "Google", url: "https://www.google.com/" },
+            { name: "toki's homepage", url: "https://230327tokiex.github.io/" }  // 
+        ];
+
+        function getLinks() {
+            let links = JSON.parse(localStorage.getItem('links'));
+            if (!links || links.length === 0) {
+                links = defaultLinks;
+                saveLinks(links);
+            }
+            return links;
+        }
+
+        function initializeLinks() {
+            const links = getLinks();
+            displayLinks();
+        }
+
+        function saveLinks(links) {
+            localStorage.setItem('links', JSON.stringify(links));
+        }
+
+        function displayLinks() {
+            const links = getLinks();
+            linksList.innerHTML = '';
+            links.forEach((link, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a href="${link.url}" target="_blank">${link.name}</a>
+                    <button class="deleteBtn" data-index="${index}">&times;</button>
+                `;
+                linksList.appendChild(li);
+            });
+        }
+
+        addLinkForm.onsubmit = function(e) {
+            e.preventDefault();
+            const name = document.getElementById('linkName').value;
+            const url = document.getElementById('linkUrl').value;
+            const links = getLinks();
+            links.push({ name, url });
+            saveLinks(links);
+            displayLinks();
+            addLinkForm.reset();
+        }
+
+        linksList.onclick = function(e) {
+            if (e.target.classList.contains('deleteBtn')) {
+                const index = e.target.getAttribute('data-index');
+                const links = getLinks();
+                links.splice(index, 1);
+                saveLinks(links);
+                displayLinks();
+            }
+        }
+
+        function displayGradients() {
+            gradientList.innerHTML = '';
+            gradients.forEach((gradient, index) => {
+                const li = document.createElement('li');
+                li.textContent = gradient.name;
+                li.style.background = `linear-gradient(45deg, ${gradient.colors})`;
+                li.onclick = () => setGradient(gradient.colors);
+                gradientList.appendChild(li);
+            });
+        }
+
+        function setGradient(colors) {
+            const container = document.querySelector('.container');
+            container.style.backgroundImage = `linear-gradient(-45deg, ${colors})`;
+            localStorage.setItem('currentGradient', colors);
+            gradientModal.style.display = "none";
+        }
+
+        // ページ読み込み時に保存されたグラデーションを適用
+        // window.onload 関数を修正
+        window.onload = function() {
+            const savedGradient = localStorage.getItem('currentGradient');
+            if (savedGradient) {
+                setGradient(savedGradient);
+            }
+            initializeLinks();  // この行を追加
+        }
+
+        // Lucide icons initialization
+        lucide.createIcons();
+    </script>
+</body>
+</html>
