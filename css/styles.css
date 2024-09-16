@@ -67,11 +67,13 @@ table a {
     text-decoration: none;
     font-weight: bold;
     border: 2px solid #00FFFF;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, cursor 0.3s;
+    cursor: default; /* 通常時はデフォルトのポインタ */
 }
 .content-link:hover {
     background-color: #00FFFF;
     color: #FF00FF;
+    cursor: pointer; /* ホバー時は指のポインタ */
 }
 .footer {
     margin-top: 30px;
