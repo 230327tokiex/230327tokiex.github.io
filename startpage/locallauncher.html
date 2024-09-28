@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Launcher</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', 'Helvetica', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #1a1a1a;
+            text-align: center;
+            font-weight: 300;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        #launcher {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        #links {
+            list-style-type: none;
+            padding: 0;
+        }
+        #links li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        #links li:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        #links a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+        .icon-button:hover {
+            color: #1a1a1a;
+        }
+        .delete-button {
+            color: #f8f8f8;
+            transition: color 0.3s ease;
+        }
+        #links li:hover .delete-button {
+            color: #666;
+        }
+        #links li:hover .delete-button:hover {
+            color: #1a1a1a;
+        }
+        form {
+            display: flex;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #1a1a1a;
+        }
+        form button {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        form button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Local Launcher</h1>
+    <div id="launcher">
+        <ul id="links"></ul>
+        <form id="add-link-form">
+            <input type="text" id="link-name" placeholder="Link name" required>
+            <input type="url" id="link-url" placeholder="URL" required>
+            <button type="submit" class="icon-button" aria-label="Add link">
+                <i data-lucide="plus-circle"></i>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        const linksList = document.getElementById('links');
+        const addLinkForm = document.getElementById('add-link-form');
+        const linkNameInput = document.getElementById('link-name');
+        const linkUrlInput = document.getElementById('link-url');
+        const icons = ['dog', 'cat', 'rabbit', 'squirrel', 'fish', 'bird', 'rocket', 'star', 'heart', 'music'];
+
+        function loadLinks() {
+            const links = JSON.parse(localStorage.getItem('launcherLinks')) || [];
+            linksList.innerHTML = '';
+            links.forEach((link, index) => {
+                const li = document.createElement('li');
+                const iconIndex = index % icons.length;
+                li.innerHTML = `
+                    <a href="${link.url}" target="_blank">
+                        <i data-lucide="${icons[iconIndex]}"></i>
+                        ${link.name}
+                    </a>
+                    <button onclick="deleteLink(${index})" class="icon-button delete-button" aria-label="Delete link">
+                        <i data-lucide="trash-2"></i>
+                    </button>
+                `;
+                linksList.appendChild(li);
+            });
+            lucide.createIcons();
+        }
+
+        addLinkForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = linkNameInput.value.trim();
+            const url = linkUrlInput.value.trim();
+            if (name && url) {
+                const links = JSON.parse(localStorage.getItem('launcherLinks')) || [];
+                links.push({ name, url });
+                localStorage.setItem('launcherLinks', JSON.stringify(links));
+                linkNameInput.value = '';
+                linkUrlInput.value = '';
+                loadLinks();
+            }
+        });
+
+        function deleteLink(index) {
+            const links = JSON.parse(localStorage.getItem('launcherLinks')) || [];
+            links.splice(index, 1);
+            localStorage.setItem('launcherLinks', JSON.stringify(links));
+            loadLinks();
+        }
+
+        if (!localStorage.getItem('launcherLinks')) {
+            const initialLinks = [
+                { name: 'Google', url: 'https://www.google.com' },
+                { name: 'YouTube', url: 'https://www.youtube.com' },
+                { name: 'GitHub', url: 'https://github.com' }
+            ];
+            localStorage.setItem('launcherLinks', JSON.stringify(initialLinks));
+        }
+
+        loadLinks();
+    </script>
+</body>
+</html>
